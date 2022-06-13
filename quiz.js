@@ -13,7 +13,7 @@ for (let i=0; i<4; i++){
 
 const seikai = "〇正解"
 const fuseikai = "×不正解"
-const ansA = document.getElementById('answerA');
+const ansA = document.getElementsById('answerA');
 
 // クリックイベントが起こったときに動作する部分
 ansA.addEventListener('click',function(){

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+        #wrapper{
+            width: 100%;
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #box{
+            width: 450px;
+            height: 450px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content:space-between;
+        }
+
+        #box div{
+            width:140px;
+            height: 140px;
+            border:1px solid #333;
+        }
+
+        .maru{
+            font-size:200%;
+            font-weight: bold;
+            color:#000;
+        }
+    </style>
+    <script src="san-moku.js" defer></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="box">
+            <div id="item1"></div>
+            <div id="item2"></div>
+            <div id="item3"></div>
+            <div id="item4"></div>
+            <div id="item5"></div>
+            <div id="item6"></div>
+            <div id="item7"></div>
+            <div id="item8"></div>
+            <div id="item9"></div>
+        </div>
+    </div>
+</body>
+</html>
