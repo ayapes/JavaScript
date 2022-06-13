@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>hogehoge</title>
+    </head>
+    <body>
+        <!-- 独習JS:P458 -->
+        <div id="a">
+            ここをクリック
+        </div>
+        <script>
+// 何度でも使う部分をまとめる。
+const divA = document.getElementById('a');
+divA.addEventListener('click',function(){
+    divA.style.backgroundColor = "red";
+
+            setTimeout(function(){
+                console.log('1秒経過');
+                divA.style.backgroundColor = "blue";  
+            },1000)
+            })
+        </script>
+    </body>
+    </html>
