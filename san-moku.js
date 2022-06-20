@@ -44,14 +44,13 @@ for (let i = 0; i < field.length; i++) {
     )
 }
 
+// for (let p = 0; p < win_patterns.length; p++) {
 
-for (let p = 0; p < win_patterns.length; p++) {
-    console.log(p);
-    function () {
-        if (win_patterns[p].every((n) => n == "○")) {
-            field.style.backgroundColor = "red";
-        } else {
-            field.style.backgroundColor = "blue";
-        }
-    }
-}
+//     function () {
+//         if ((win_patterns[p].every((n) => n == "○")) == true) {
+//             field.style.backgroundColor = "red";
+//         } else {
+//             field.style.backgroundColor = "blue";
+//         }
+//     }
+// }
