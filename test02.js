@@ -1,16 +1,51 @@
 
 const aaa = document.querySelectorAll(".aaa");
-
 const win_patterns = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    [0, 3, 6],
+    [0, 3, 6], 
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+let count = 0;
+
+for (let i = 0; i < aaa.length; i++) {
+    aaa[i].addEventListener('click', function () {
+        count++;
+        if (count % 2 == 1) {
+            this.textContent = "★";
+            // this.setAttribute('class', 'maru');
+        } else {
+            this.textContent = "☆";
+            // this.setAttribute('class', 'batsu');
+        }
+
+    }
+    )
+    for (let j = 0; j < win_patterns.length; j++) {
+        let bufs = [];
+        
+        for (let k = 0; k < win_patterns[j].length; k++) {
+             bufs.push(aaa[win_patterns[j][k]].textContent);
+        }
+        console.log("j" + j + bufs);
+        bool1 = bufs.every((n) => n == "★");
+        bool2 = bufs.every((n) => n == "☆");
+        if(bool1){
+            console.log("あってます！");
+    }else{
+        console.log("あってません！"); 
+    }
+    
+}
+
+
+    
+}
 // const win_patterns[i] = patterns;
 // for (let i = 0; i < 8; i++){
 //     // console.log(field[win_patterns[i][0]] == field[win_patterns[i][1]] == field[win_patterns[i][2]] == 1);
