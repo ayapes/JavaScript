@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="modal.scss">
+</head>
+
+<body>
+    <div class="container">
+        <ul class="hoge-list">
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/500/500" alt="altの内容01">
+                </div>
+                <p class="ttl">タイトル01</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/700/500" alt="altの内容02">
+                </div>
+                <p class="ttl">タイトル02</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/1000/500" alt="altの内容03">
+                </div>
+                <p class="ttl">タイトル03</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/1500/1500" alt="altの内容04">
+                </div>
+                <p class="ttl">タイトル04</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/500/700" alt="altの内容05">
+                </div>
+                <p class="ttl">タイトル05</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+            <li class="hoge-item">
+                <div class="img-box">
+                    <img src="https://picsum.photos/500/900" alt="altの内容06">
+                </div>
+                <p class="ttl">タイトル06</p>
+                <p class="txt">説明が入ります。</p>
+            </li>
+        </ul>
+
+        <div class="modal-block">
+            <div class="img-section">
+                <span>
+                    <!-- close btn -->
+                </span>
+                <img id="popup" src="#">
+                <div class="caption"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".hoge-item .img-box >img").click(function () {
+  var src = $(this).attr("src");
+  var cap = $(this).attr("alt")
+  $(".modal-block").fadeIn()
+  $(".modal-block").css("display", "flex")
+
+  $("#popup").attr("src", src);
+  $(".caption").text(cap);
+})
+$(".img-section >span").click(function () {
+  $(".modal-block").css("display", "none")
+})
+    </script>
+</body>
+
+</html>

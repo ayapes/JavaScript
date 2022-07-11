@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+div{
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.aaa {
+    border:1px solid #000;
+    width: 100px;
+    height: 100px;
+}
+#line{
+    width: 300px;
+    margin: 2rem auto;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <p id="line">さんもくならべ</p>
+    <div>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+        <p class="aaa"></p>
+    </div>
+</body>
+<script>
+    const aaa = ["A","B","C","D","E","F"];
+    const ccc = (array) => {
+        const a = aaa[array[0]];
+        const b = aaa[array[1]];
+        const c = aaa[array[2]];
+        console.log(array[0]);
+      
+    }
+</script>
+</html>

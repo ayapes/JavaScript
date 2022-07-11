@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    padding: 80px 20px;
+    margin: 0 auto;
+}
+
+.hoge-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    li {
+        width: calc(96% / 3);
+        margin-bottom: 30px;
+
+        &:not(:nth-child(3n)) {
+            margin-right: 2%;
+        }
+    }
+
+    .hoge-item {
+        cursor: pointer;
+
+        .img-box {
+            height: 150px;
+            width: 100%;
+            overflow: hidden;
+
+            >img {
+                transition: .3s;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .ttl {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        &:hover {
+            .img-box {
+                >img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+.modal-block {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .img-section {
+        width: 60vw;
+        height: 60vh;
+        position: relative;
+        margin: 0 auto;
+
+        span {
+            position: absolute;
+            transform: translate(50%, -50%);
+            top: 0;
+            right: 0;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                width: 30px;
+                height: 30px;
+                background: red;
+                border-radius: 50%;
+                display: block;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .caption {
+        font-size: 20px;
+        letter-spacing: .09em;
+        color: #fff;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
