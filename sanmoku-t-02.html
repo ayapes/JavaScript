@@ -45,7 +45,7 @@
         const a = gameArray[array[0]];
         const b = gameArray[array[1]];
         const c = gameArray[array[2]];
-        console.log(array[1]);
+        console.log("checkSameのとこ" + array[2]);
         if ([a, b, c].every(value => value !== 0)) {
             return a === b && a === c;
         }
@@ -55,15 +55,15 @@
     const checkArray = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
         [0, 3, 6], [1, 4, 7], [2, 5, 8],
-        [0, 4,], [2, 4, 6]
+        [0, 4,9], [2, 4, 6]
     ];
 
     const checkWinner = (player) => {
         // 各パターンで検証して、一つでも成立していればtrueを返す
         const checkArray02 = checkArray.map(array => checkSame(array));
         const checkBoard = checkArray02.includes(true);
-        console.log(checkArray02);
-        console.log(checkBoard);
+        console.log("checkArray02= " + checkArray02);
+        console.log("checkBoard= " +checkBoard);
 
         if (checkBoard) {
             // ゲームが終了したので、flagをtrueにする

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数のしくみについて</title>
+</head>
+
+<body>
+    <pre>
+        // まずは計算や処理の公式みたいなのを作る
+        function sum(val1, val2) {
+            return val1 + val2;
+        }
+
+        // そして上の公式にあてはめたい引数(val1,val2)部分を決める
+        let result = sum(10,20);
+        // これで10＋20をしてくれる。
+        console.log("resultの結果は：" + result);
+        // ちなみに関数の外から引数にアクセスするとエラーです。not defined
+        console.log("val1の値は："+ val1);
+
+        // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        // returnは何個でも書けるけど１個目のやつで処理終了。if文使えばイケる
+
+        function sum2(val1, val2) {
+            return val1 + val2;
+            return val1 * val2;
+        }
+
+        let result2 = sum2(10,20);
+        console.log("result2の結果は：" + result2);
+
+         // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        //  こんな記述方法もいけます
+
+        const sum3 = function(val1,val2){
+            return val1 + val2;
+        }
+
+        let result3 = sum3(10,20);
+        console.log("result3の結果は：" + result3);
+
+        // アロー関数
+        const sum4 = (val1,val2) =>{
+            return val1 + val2;
+        }
+
+        let result4 = sum4(10,20);
+        console.log("result4の結果は：" + result4);
+    </pre>
+    <script>
+        // まずは計算や処理の公式みたいなのを作る[関数宣言]
+        function sum(val1, val2) {
+            return val1 + val2;
+        }
+
+        // そして上の公式にあてはめたい引数(val1,val2)部分を決める
+        let result = sum(10,20);
+        // これで10＋20をしてくれる。
+        console.log("resultの結果は：" + result);
+        // ちなみに関数の外から引数にアクセスするとエラーです。not defined
+        // console.log("val1の値は："+ val1);
+
+        // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        // returnは何個でも書けるけど１個目のやつで処理終了。if文使えばイケる
+
+        function sum2(val1, val2) {
+            return val1 + val2;
+            return val1 * val2;
+        }
+
+        let result2 = sum2(10,20);
+        console.log("result2の結果は：" + result2);
+
+         // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        //  こんな記述方法もいけます[関数式]
+
+        const sum3 = function(val1,val2){
+            return val1 + val2;
+        }
+
+        let result3 = sum3(10,20);
+        console.log("result3の結果は：" + result3);
+
+        // アロー関数
+        const sum4 = (val1,val2) =>{
+            return val1 + val2;
+        }
+
+        let result4 = sum4(10,20);
+        console.log("result4の結果は：" + result4);
+
+        
+         // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        // 関数宣言と関数式、記述の順番注意の点
+
+        // 関数宣言→実行文を先に記載しても問題なし！
+
+        hello();
+
+        function hello(){
+            console.log("こんにちわ");
+        }
+
+        // 関数式は必ず実行分を関数式の後に書きましょう
+
+        const hello2 = function (){
+            console.log("こんにちわ");
+        };
+
+        hello2();
+        
+        
+         // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        //  引数が多い場合はオブジェクトを使う（独習JS P165)
+
+        
+         // ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+        //  コールバック関数
+
+        // 関数は「実行可能なオブジェクト」　実行可能→関数の末尾についてる「（ ）」のことと思いましょう。
+        // 変数はオブジェクトでございますので、そのほかのデータと同様に変数に代入できます。
+
+        function hello(name){
+            console.log(`こんにちわ！${name}！`);
+            //「`」はバッククォート。${}使うときはこれ。シフト「＠」キー
+        }
+
+        const obj = hello;
+
+        obj("やまだたろう");
+        hello("やまもとじろう");
+
+        // コールバック関数の仕組み
+        // 関数はオブジェクトの一種なのでほかの関数の引数として渡すことができます。
+
+        function saySomething(callback){
+
+            const result =callback();
+            console.log(result + "やまおかあや！");
+        }
+
+        function hello(){
+            return "こんにちわ";
+        }
+
+        function bye(){
+            return "さよなら";
+        }
+
+        saySomething(hello); // callbackの公式の中にhelloを入れています！
+        saySomething(bye);  // byeを入れています
+        // hello関数と、bye関数がコールバック関数どす
+        // saySomething(hello()); としてはだめなの？hello関数の中には文字列しか入ってない。関数の実行をしないのでエラーになる。
+        
+    </script>
+</body>
+
+</html>

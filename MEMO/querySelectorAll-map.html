@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAllしたやつをmapで配列にする。</title>
+
+    <style>
+        a {
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>querySelectorAllは取得した要素の数と、何番目の要素の指定はできるけど配列にはなっていないことに注意<br>
+            なので、mapなどで配列にする必要がある。（配列にしたければ。。。)</p>
+        <p>
+        <pre>
+let elements = document.querySelectorAll('.box');
+
+// 取得した要素の数を取得
+let len = elements.length;
+
+// インデックスを指定して要素を取得
+let element = elements.item(0);
+
+// 次の形式でもインデックスを指定して要素を取得
+let element = elements[0];
+        </pre>
+        </p>
+        <a href="0000.html" alt="0000">0000</a>
+        <a href="0001.html" alt="0001">0001</a>
+        <a href="0002.html" alt="0002">0002</a>
+        <a href="0003.html" alt="0003">0003</a>
+        <a href="0004.html" alt="0004">0004</a>
+        <a href="0005.html" alt="0005">0005</a>
+        <a href="0006.html" alt="0006">0006</a>
+        <a href="0007.html" alt="0007">0007</a>
+        <a href="0008.html" alt="0008">0008</a>
+        <a href="0009.html" alt="0009">0009</a>
+        <a href="0010.html" alt="0010">0010</a>
+    </div>
+
+    <script>
+        // Array.prototype.slice.call
+        const arry1 = Array.prototype.slice.call(document.querySelectorAll('a')).map(a => a.textContent);
+        const arry2 = Array.prototype.slice.call(document.querySelectorAll('a')).map((a) => {
+            return a.textContent
+        });
+        console.log("Array.prototype.slice.call:" + arry1);
+        console.log("Array.prototype.slice.call:" + arry2);
+
+        // [].slice.call
+        const arry3 = [].slice.call(document.querySelectorAll('a')).map(a => a.textContent);
+        const arry4 = [].slice.call(document.querySelectorAll('a')).map((a) => {
+            return a.textContent
+        });
+
+        console.log("[].slice.call:" + arry3);
+        console.log("[].slice.call:" + arry4);
+
+        // Array.from
+        const arry5 = Array.from(document.querySelectorAll('a')).map(a => a.textContent);
+        const arry6 = Array.from(document.querySelectorAll('a')).map((a) => {
+            return a.textContent
+        });
+        console.log("Array.from:" + arry5);
+        console.log("Array.from:" + arry6);
+
+        // […
+        const arry7 = [...document.querySelectorAll('a')].map(a => a.textContent)
+        const arry8 = [...document.querySelectorAll('a')].map((a) => {
+            return a.textContent
+        });
+
+        console.log("[…:" + arry7);
+        console.log("[…:" + arry8);
+
+        // [].map.callとアロー関数
+        const arry9 = [].map.call(document.querySelectorAll('a'), a => a.textContent);
+        console.log("[].map.call＆アロー関数:"+arry9);
+    </script>
+</body>
+
+</html>

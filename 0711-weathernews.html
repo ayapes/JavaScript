@@ -1,47 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body></body>
-  <script>
-    // API配信のURL
-    // 130000は東京のエリアコード・奈良は290000・宇陀市は2921200
-    // let url_Tokyo = "https://www.jma.go.jp/bosai/forecast/data/forecast/290000.json";
-    // let url_Tokyo = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/290000.json";
-    // let url_Okinawa = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/471000.json";
-    // let url_Aomori = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/020000.json";
-    // // 今日・明日・明後日のURL　https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json;
-
-    const getWeather = async (url) => {
-        // 指定したurlのAPIからjsonデータを取得
-        const response = await fetch(url)
-        // jsonデータをオブジェクトに変換する
-        return response.json()
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    span {
+      display: none;
     }
 
-    const getData = async () => {
-        // let data = await getWeather(url_Tokyo);
-// リンクのaltを県の番号にして、クリックしたらそれゲット
-// var img = document.getElementById('myimage');
-// var alt = myimage.getAttribute('alt');
-        const prefNum = (県番号);
-        let data = await getWeather("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/" + prefNum + ".json");
+    ul {
+      display: flex;
+    }
+
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0.5rem;
+    }
+
+    li:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>あおもり<span>020000</span></li>
+    <li>とうきょう<span>130000</span></li>
+    <li>おきなわ<span>471000</span></li>
+  </ul>
+  <div class="text"></div>
+</body>
+<script>
+  // API配信のURL
+  // 130000は東京のエリアコード・奈良は290000・宇陀市は2921200
+  // let url_Tokyo = "https://www.jma.go.jp/bosai/forecast/data/forecast/290000.json";
+  // let url_Tokyo = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/290000.json";
+  // let url_Okinawa = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/471000.json";
+  // let url_Aomori = "https://www.jma.go.jp/bosai/forecast/data/overview_forecast/020000.json";
+  // // 今日・明日・明後日のURL　https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json;
+
+  const getWeather = async (url) => {
+    // 指定したurlのAPIからjsonデータを取得
+    const response = await fetch(url)
+    // jsonデータをオブジェクトに変換する
+    return response.json()
+  }
+
+  const prefNum = Array.prototype.slice.call(document.querySelectorAll('span')).map(span => span.textContent);
+    const list = document.querySelectorAll('li');
+
+  for (let i = 0; i < list.length; i++) {
+    list.addEventListener('click', async () => {
+      // const getData = async () => {
+        let data = await getWeather("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/" + prefNum[i] + ".json");
         console.log(data);
-        console.log(data.publishingOffice);
-        console.log(data.reportDatetime);
-        console.log(data.targetArea);
-        console.log(data.text);
-        
+        // console.log(data.publishingOffice);
+        // console.log(data.reportDatetime);
+        // console.log(data.targetArea);
+        // console.log(data.text);
         const div = document.createElement('div');
         div.textContent = data.text;
-        document.querySelector('body').append(div);
-    }
+        document.querySelector('.text').append(div);
+      })
+      // getData()
+  }
 
-    getData()
-  </script>
+ 
+</script>
+
 </html>
