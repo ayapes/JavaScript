@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 1;
+        let b = 2;
+        console.log(a+b);
+        // ↓2回ポップアップ出てくる
+        // window.alert("HELLO WORLD");
+        // window.alert("SAYONARA SEKAI");
+
+        let hello = "こんにちわ";
+        let greeting = hello;
+        console.log(hello);
+        console.log(greeting);
+
+        let name = "タロウ";
+        window.alert(`こんにちわ${name}`);
+
+        const obj = {
+            strProp : "文字列",
+            intProp : 123,
+            objectProp : {
+                subProp1 : "値１",
+                subProp2 : "値２"
+            },
+            intProp : 456,
+            boolProp : false,
+        }
+
+    </script>
+</body>
+</html>
