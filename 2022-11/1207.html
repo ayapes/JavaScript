@@ -1,79 +1,161 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-<script>
 
-const taro = {
-    name : "太郎",
-    hello: function(){
-        console.log(`こんにちわ、` + this.name);
-    }
-}
+    <script>
 
-taro.hello();
+        const taro = {
+            name: "太郎",
+            hello: function () {
+                console.log(`こんにちわ、` + this.name);
+            }
+        }
 
+        taro.hello();
+
+    </script>
+
+    <script>
+
+        window.name = "花子";
+
+        function hello() {
+            console.log("こんにちわ" + this.name);
+        }
+
+        hello();
+
+    </script>
+
+    <script>
+
+        // ユーザー情報を管理するオブジェクトを仮定した場合
+        // ユーザー：独習太郎
+        const taro = {
+            username: "独習太郎",
+            password: "abc1234",
+            login() {
+                console.log(`ログイン [ ${this.username} / ${this.password} ]`);
+            }
+        };
+
+        // ユーザー：独習花子
+        const hanako = {
+            username: "独習花子",
+            password: "def5678def5678",
+            login() {
+                console.log(`ログイン [ ${this.username} / ${this.password} ]`);
+            }
+        };
+
+        // クラス記法で書き直した場合
+        class User {
+            constructor(username, password) {
+                this.username = username;
+                this.password = password;
+            }
+
+            login() {
+                console.log(`ログイン [ ${this.username} / ${this.password} ]`);
+            }
+
+            changePassword(pwd) {
+                this.password = pwd;
+                console.log(`パスワードが [${this.password}] に変更されました。`)
+            }
+        };
+
+        const taro = new User("独習太郎", "abc1234");
+        const hanako = new User("独習花子", "def5678");
+    </script>
+
+
+    <script>
+
+        class User {
+            constructor(username, password) {
+                this.username = username;
+                this.password = password;
+            }
+
+            login() {
+                this.check();
+                console.log(`ログイン [ ${this.username} / ${this.password} ]`);
+            }
+
+            check() {
+                console.log(`${this.username}さんの情報を確認しています。`);
+            }
+        };
+
+        const taro = new User("独習太郎", "abc1234");
+        const hanako = new User("独習花子", "def5678");
+
+    </script>
+
+    <script>
+
+        class Human {
+
+            static TYPE = "普通の人";
+
+            static staticMove() {
+                console.log(Human.TYPE + "は歩いて移動します");
+
+            }
+
+            constructor(name) {
+                this.name = name;
+            }
+
+            move() {
+                console.log(this.name + "は歩いて移動します。")
+            }
+        }
+
+        const taro = new Human("太郎");
+    </script>
+
+    <script>
+        // インスタントメソッド内から、静的プロパティや静的メソッド
+        // にアクセスする場合は、this.constructor.静的メソッドのように
+        // 記述することが可能です
+
+        class TestCls {
+            static STATIC_PROP = "静的プロパティー";
+            static staticMethod() { return "静的メソッド" }
+            method() {
+                console.log(this.constructor.STATIC_PROP);
+                console.log(this.constructor.staticMethod());
+            }
+        }
+const test = new TestCls;
+test.method();
 </script>
 
 <script>
 
-window.name = "花子";
+    let counter = 0;
+    const intervalID = setInterval( () =>{
 
-function hello(){
-    console.log("こんにちわ" + this.name);
-}
+    counter++;
+    console.log( counter );
 
-hello();
-
-</script>
-
-<script>
-
-// ユーザー情報を管理するオブジェクトを仮定した場合
-// ユーザー：独習太郎
-const taro ={
-    username:"独習太郎",
-    password:"abc1234",
-    login(){
-        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
+    if( counter === 10){
+    clearInterval( intervalID);
+    console.log("インターバル終了");
     }
-};
-
-// ユーザー：独習花子
-const hanako ={
-    username:"独習花子",
-    password:"def5678def5678",
-    login(){
-        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
-    }
-};
-
-// クラス記法で書き直した場合
-class User{
-    constructor( username , password ){
-        this.username = username;
-        this.password = password;
-    }
-
-    login(){
-        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
-    }
-
-    changePassword( pwd ){
-        this.password = pwd;
-        console.log(`パスワードが [${this.password}] に変更されました。`)
-    }
-};
-
-const taro = new User( "独習太郎" , "abc1234");
-const hanako = new User( "独習花子" , "def5678");
-</script>
+    },1500);
+    </script>
 
 </body>
+
 </html>
