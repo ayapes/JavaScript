@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+const taro = {
+    name : "太郎",
+    hello: function(){
+        console.log(`こんにちわ、` + this.name);
+    }
+}
+
+taro.hello();
+
+</script>
+
+<script>
+
+window.name = "花子";
+
+function hello(){
+    console.log("こんにちわ" + this.name);
+}
+
+hello();
+
+</script>
+
+<script>
+
+// ユーザー情報を管理するオブジェクトを仮定した場合
+// ユーザー：独習太郎
+const taro ={
+    username:"独習太郎",
+    password:"abc1234",
+    login(){
+        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
+    }
+};
+
+// ユーザー：独習花子
+const hanako ={
+    username:"独習花子",
+    password:"def5678def5678",
+    login(){
+        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
+    }
+};
+
+// クラス記法で書き直した場合
+class User{
+    constructor( username , password ){
+        this.username = username;
+        this.password = password;
+    }
+
+    login(){
+        console.log( `ログイン [ ${this.username} / ${this.password} ]`);
+    }
+
+    changePassword( pwd ){
+        this.password = pwd;
+        console.log(`パスワードが [${this.password}] に変更されました。`)
+    }
+};
+
+const taro = new User( "独習太郎" , "abc1234");
+const hanako = new User( "独習花子" , "def5678");
+</script>
+
+</body>
+</html>
