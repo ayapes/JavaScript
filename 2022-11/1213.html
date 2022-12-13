@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>タイトル</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h1>見出し１</h1>
-    <p>これは段落です</p>
+    <section id="container">
+        <span class="target-cls"></span>
+        <div class="list">
+            <input name="child1">
+            <input name="child2">
+        </div>
+        <p class="target-cls2">
+            <span>あああ</span>
+            <span>いいい</span>
+        </p>
+    </section>
+
+    <script>
+const aaa = document.querySelectorAll( ".target-cls2 > span")
+const elById= document.getElementById("container");
+const elsByCls = document.getElementsByClassName("target-cls");
+const elsByName = document.getElementsByName("child1");
+const elsByTag = document.getElementsByTagName("p");
+
+    </script>
 </body>
 </html>
-
-
-
