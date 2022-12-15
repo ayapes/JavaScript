@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .red {
+            border: 1px solid red;
+            padding: 0;
+            /* margin: 0; */
+        }
+
+        .card {
+            /* padding: 1px; */
+            /* margin: 1px; */
+            padding: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="img"><img src="../cards/card_back.png" alt="AAA" class="card"></p>
+    <script>
+        const card = document.querySelector(".card");
+        card.onclick = (() => {
+            const checkRed = card.classList.contains('red');
+            console.log(checkRed);
+            card.classList.add('red');
+            if (checkRed) {
+                card.classList.remove('red');
+            };
+        });
+        const attr = card.getAttribute('alt');
+
+        async function getUserData(){
+
+            const url = "目的のURL";
+
+            const result = await fetch(url);
+
+            const UserData = result.json();
+        }
+
+        
+    </script>
+</body>
+
+</html>
