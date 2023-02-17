@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main">
+
+    </div>
+    <script>
+        const shuffleArray = array => {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                // i番目（5.4.3..降順)の箱とj番目(ランダム数字)の箱を入れ替える。を繰り返す
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+
+        }
+
+        const arry = [...Array(10)].map((_, k) => k + 1);
+        //  arryを複製
+        const newArry = [...arry];
+        // 複製したほうをシャッフルすれば元の配列は番号順でおいとける。
+        shuffleArray(newArry);
+        console.log("arry=" + arry);
+        console.log("newArry=" + newArry);
+
+        const main_element = document.getElementById('main');
+
+        for (let m = 0; m < arry.length; m++) {
+            let new_element = document.createElement('p');
+            main_element.appendChild(new_element);
+            new_element.textContent = newArry[m];
+            new_element.setAttribute("id",arry[m]);
+            new_element.setAttribute("class","card");
+        };
+
+        const card_element = document.querySelectorAll(".card");
+        console.log(card_element[9].id);
+
+    </script>
+</body>
+
+</html>

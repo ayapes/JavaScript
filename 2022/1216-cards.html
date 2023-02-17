@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        const app = document.getElementById("app");
+
+        const makeBox = () => {
+            const newBox = document.createElement("p");
+            newBox.className = "box";
+            app.append(newBox);
+        }
+
+        for (let i = 0; i < 6; i++) {
+            makeBox(i);
+        }
+
+        const box = document.querySelectorAll(".box");
+        box.forEach((value, index) => {
+            console.log(index, value);
+            box[index].textContent = index+1;
+        });
+
+        const newBoxArry = new Array(box);
+        console.log(newBoxArry);
+
+        const shuffleArray = (array) => {
+            const cloneArray = [...array]
+
+            for (let i = cloneArray.length - 1; i >= 0; i--) {
+                box[i].textContent = i;
+                let rand = Math.floor(Math.random() * 100000000)
+                // 配列の要素の順番を入れ替える
+                let tmpStorage = cloneArray[i]
+                cloneArray[i] = cloneArray[rand]
+                cloneArray[rand] = tmpStorage
+                
+            }
+
+            return cloneArray
+        };
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

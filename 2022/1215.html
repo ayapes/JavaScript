@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *,body{
+        *,
+        body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -24,6 +25,10 @@
             /* margin: 1px; */
             padding: 1px;
         }
+
+        p {
+            margin: 60px;
+        }
     </style>
 </head>
 
@@ -31,26 +36,22 @@
     <p class="img"><img src="../cards/card_back.png" alt="AAA" class="card"></p>
     <script>
         const card = document.querySelector(".card");
+        // card.onclick = (() => {
+        //     const checkRed = card.classList.contains('red');
+        //     console.log(checkRed);
+        //     card.classList.add('red');
+        //     if (checkRed) {
+        //         card.classList.remove('red');
+        //     };
+        // });
+
+        // ↓こっちめちゃかんたんやん！！！！！
         card.onclick = (() => {
-            const checkRed = card.classList.contains('red');
-            console.log(checkRed);
-            card.classList.add('red');
-            if (checkRed) {
-                card.classList.remove('red');
-            };
-        });
-        const attr = card.getAttribute('alt');
+            card.classList.toggle("red");
+        })
 
-        async function getUserData(){
 
-            const url = "目的のURL";
 
-            const result = await fetch(url);
-
-            const UserData = result.json();
-        }
-
-        
     </script>
 </body>
 

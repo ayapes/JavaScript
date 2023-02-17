@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #CCC;
+        }
+
+        #app {
+            width: 96%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .box {
+            display: block;
+            width: 7%;
+            margin: 0.3%;
+        }
+
+        .img {
+            width: 100%;
+            transform: rotateY(0);
+        }
+
+        .rotate {
+            transform: rotateY(180deg);
+            /* Y軸を基準点に回転する */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="app"></div>
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        const app = document.getElementById("app");
+        const newBox = document.createElement("p");
+        const newImg = document.createElement("img");
+        newBox.append(newImg);
+        app.append(newBox);
+        newBox.className = "box";
+        newImg.className = "img";
+        newImg.setAttribute("src", "../cards/card_back.png");
+
+        for (let i = 1; i < 52; i++) {
+            const clone = newBox.cloneNode(true);
+            app.append(clone);
+        }
+
+        newBox.onclick = ( () =>{
+            console.log("クリックされました");
+        });
+    </script>
+</body>
+
+</html>

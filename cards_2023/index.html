@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function arrayShuffle(array) {
+  for(let i = (array.length - 1); 0 < i; i--){
+
+    // 0〜(i+1)の範囲で値を取得
+    let r = Math.floor(Math.random() * (i + 1));
+
+    // 要素の並び替えを実行
+    let tmp = array[i];
+    array[i] = array[r];
+    array[r] = tmp;
+  }
+  return array;
+}
+
+let numbers = [...Array(52)].map((_, i) => i + 1);
+console.log(arrayShuffle(numbers));
+
+</script>
+</html>

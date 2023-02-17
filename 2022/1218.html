@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            border: 4px solid #CCC;
+            margin: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .bg {
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="box">要素Pの1番目です</p>
+    <p class="box">要素Pの2番目です</p>
+    <p class="box">要素Pの3番目です</p>
+    <p class="box">要素Pの4番目です</p>
+    <p class="box">要素Pの5番目です</p>
+
+    <script>
+        const box = document.querySelectorAll(".box");
+        let count = 0;
+
+        for (const element of box) {
+            element.addEventListener("click", () => {
+                element.classList.add("bg");
+                // const bgNum = bg.length;
+                // console.log(bgNum);
+                count++;
+                console.log(count);
+                if (count == 2) {
+                    count = 0;
+                    const bg = document.querySelectorAll(".bg");
+                    bg.forEach((element) => {
+                        setTimeout( ()=>{
+                            element.classList.remove("bg");
+                        },1500);
+                    });
+                }
+            });
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

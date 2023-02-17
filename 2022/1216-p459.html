@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<style>
+    #parent {
+        width: 300px;
+        padding: 50px;
+        background-color: aquamarine;
+    }
+
+    #child {
+        padding: 100px;
+        background-color: khaki;
+    }
+</style>
+
+<body>
+    <section id="parent">
+        <div id="child"></div>
+    </section>
+    <script>
+        window.addEventListener("click", ( event ) => {
+            console.log("windowだぁよ");
+            console.log(`currentTarget:[ ${event.currentTarget.nodeName} ]`)
+            console.log(`target:[ ${event.target.nodeName} ]`)
+        });
+        document.getElementById('parent').addEventListener('click', (event) => {
+            console.log('親だよ');
+            console.log(`currentTarget:[ ${event.currentTarget.nodeName} ]`)
+            console.log(`target:[ ${event.target.nodeName} ]`)
+
+        });
+        document.getElementById('child').addEventListener('click', (event) => {
+            console.log('子だよ');    
+            console.log(`currentTarget:[ ${event.currentTarget.nodeName} ]`)
+            console.log(`target:[ ${event.target.nodeName} ]`)       
+        });
+    </script>
+</body>
+
+</html>

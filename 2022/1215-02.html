@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">3秒後に文字と背景の色が変わります</div>
+    <script>
+        setTimeout( ()=> {
+            const app = document.querySelector("#app");
+            app.style.color = "white";
+            app.style.backgroundColor = "black";
+        },3000)
+    </script>
+</body>
+</html>

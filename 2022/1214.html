@@ -11,25 +11,20 @@
         <button id="minus">-</button>
         <span id="number">0</span>
         <button id="plus">+</button>
-        <p>テスト</p>
-        <span class="cls">テスト２</span>
     </div>
     <script>
         let count = 0;
-        console.log(count);
         const number = document.querySelector("#number");
         const mnsBtn = document.querySelector("#minus");
         const plsBtn = document.querySelector("#plus");
 
-        plsBtn.onclick = ( () =>{
+        plsBtn.addEventListener( "click",(event) =>{
             count++;
-            console.log(count);
             number.textContent = count;
         });
 
-        mnsBtn.onclick = ( () =>{
+        mnsBtn.addEventListener( "click", (event) =>{
             count--;
-            console.log(count);
             number.textContent = count;
         });
     </script>
